@@ -172,7 +172,7 @@ def bsod(error_code=" "):
 def start_terminal(ram, disk):
     current_dir = "/"
     print("╔══════════════════════════════╗")
-    print("║        PY-DOS v1.4           ║")
+    print("║        PY-DOS v1.0.4         ║")
     print("║      FOR  ESP32 CARDS        ║")
     print("╚══════════════════════════════╝")
     print("Type HELP for commands.\n")
