@@ -12,6 +12,36 @@ PY-DOS on ESP32 is a lightweight command-line OS ported to MicroPython. It runs 
 
 ---
 
+## Features
+
+- **Editor app**: Type Python scripts and more.  
+- **RUN command**: Still exists, but now runs Python scripts instead of PY-DOS original commands.  
+- ⚠️ **Warning**: FORMAT command is dangerous — it erases everything on the flash, including system files.  
+
+### Original PY-DOS commands are still available:
+
+- **DIR** – List files and directories  
+- **TREE** – Display directory tree  
+- **TYPE** – Show file content  
+- **WRITE** – Write text to a file (RAM + Disk)  
+- **DEL** – Delete a file from RAM and Disk  
+- **RENAME** – Rename a file  
+- **COPY** – Copy a file  
+- **MKDIR** – Create a new directory  
+- **CD / CCD** – Change current directory  
+- **RUN** – Run a script or application  
+- **RAMLOAD** – Load a key-value into RAM  
+- **RAMCLEAR** – Clear all RAM contents  
+- **RAMSHOW** – Display RAM contents  
+- **REBOOT** – Reboot the system  
+- **FORMAT** – Format (reset) the disk  
+- **PRINT** – Print text to screen  
+- **AMS** – Run Anti-Malware Scan (RAM & Disk)  
+- **HELP** – Display all available commands  
+- **EXIT** – Exit PY-DOS
+
+---
+
 
 ## How to Install
 Copy these files to the ESP32's flash: **ram.py**, **disk.py**, **boot.py**, then reset the ESP32.
