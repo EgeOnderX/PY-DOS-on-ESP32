@@ -1,20 +1,16 @@
-# ram.py
 class RAM:
     def __init__(self):
         self.memory = {}
+        self.total_kb = 128
+        self.used_kb = 0
 
     def load(self, key, value):
         self.memory[key] = value
-
-    def get(self, key):
-        return self.memory.get(key, None)
+        self.used_kb = min(self.total_kb, self.used_kb + len(value) // 1024)
 
     def clear(self):
-        self.memory.clear()
+        self.memory = {}
+        self.used_kb = 0
 
     def get_info(self):
-        # Tahmini değerler, MicroPython'da gerçek RAM ölçümü yok
-        total_kb = 32000  # ESP32 tipik RAM ~32KB (MicroPython heap)
-        used_kb = sum(len(str(v)) for v in self.memory.values()) // 1024
-        free_kb = total_kb - used_kb
-        return {"total_kb": total_kb, "used_kb": used_kb, "free_kb": free_kb}
+        return {"used_kb": self.used_kb, "total_kb": self.total_kb}
