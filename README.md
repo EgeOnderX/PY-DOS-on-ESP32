@@ -1,4 +1,4 @@
-# PY-DOS-on-ESP32
+# PY-DOS-on-ESP32 v 1.0.5
 PY-DOS on ESP32 is a lightweight command-line OS ported to MicroPython. It runs on resource-limited ESP32 boards and provides a simple DOS-like experience via a serial terminal.
 
 > Developed from scratch by **Ege**  
@@ -16,7 +16,6 @@ PY-DOS on ESP32 is a lightweight command-line OS ported to MicroPython. It runs 
 
 - **Editor app**: Type Python scripts and more.  
 - **RUN command**: Still exists, but now runs Python scripts instead of PY-DOS original commands.  
-- ⚠️ **Warning**: FORMAT command is dangerous — it erases everything on the flash, including system files.
 - Added dead screen.
 - **Disk** and **ram.py** do not simulate!  
   - **Disk** connects to the flash/SD card via `boot.py`.  
@@ -27,25 +26,26 @@ PY-DOS on ESP32 is a lightweight command-line OS ported to MicroPython. It runs 
 - **DIR** – List files and directories  
 - **TREE** – Display directory tree  
 - **TYPE** – Show file content  
-- **WRITE** – Write text to a file (RAM + Disk)  
 - **DEL** – Delete a file from RAM and Disk  
 - **RENAME** – Rename a file  
 - **COPY** – Copy a file  
 - **MKDIR** – Create a new directory  
 - **CD / CCD** – Change current directory  
 - **RUN** – Run a script or application  
-- **RAMLOAD** – Load a key-value into RAM  
-- **RAMCLEAR** – Clear all RAM contents  
-- **RAMSHOW** – Display RAM contents  
-- **REBOOT** – Reboot the system  
-- **FORMAT** – Format (reset) the disk  
 - **PRINT** – Print text to screen  
-- **AMS** – Run Anti-Malware Scan (RAM & Disk)  
 - **HELP** – Display all available commands  
 - **EXIT** – Exit PY-DOS
 
 ---
 
+## What's New
+- `edit` is now a separate program; it is not tied to `espinit`.  
+- `disk.py` and `ram.py` have been replaced by `hal.py`.  
+- `drivers.py` and `startup.py` may seem useless for now but will be useful in the future.  
+- **Warning:** Make sure to load all files! Otherwise, the blue LED will blink, and the missing file name will appear under `Kernel panic!` on the serial port.  
+- And many more improvements I might have forgotten...
+
+---
 
 ## How to Install
 Copy these files to the ESP32's flash: **ram.py**, **disk.py**, **boot.py**, then reset the ESP32.
@@ -68,14 +68,13 @@ However, if you don't want to use **PuTTY** and prefer **Thonny**, you should **
 
 ## All Commands
 
-To see the full list of available commands, simply type helpall into the command line.
+To see the full list of available commands, simply type help into the command line.
 
 ---
 
 ## Future Plans
 
 - SD card support  
-- LCD screen (4x16) support  
 - Possibly TFT screen support  
 - Separate the kernel from the bootloader  
 - Implement a proper filesystem
